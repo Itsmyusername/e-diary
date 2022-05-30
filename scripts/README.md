@@ -11,7 +11,7 @@
 ## Как запустить?
 
 ```python
-from scripts.scripts import *
+from scripts.scripts import Schoolkid, Subject, Lesson, Mark, Commendation, Сhastisement
 ```
 
 ## Как использовать?
