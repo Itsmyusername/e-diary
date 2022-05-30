@@ -30,7 +30,7 @@ def create_commendation(schoolkid_name, subject_name):
     subject = Subject.objects.get(title__contains=subject_name,
                                   year_of_study=child.year_of_study)
     lesson = Lesson.objects.filter(group_letter=child.group_letter,
-                                   subject=subject).order_by('?')[0]
+                                   subject=subject).order_by('?').first()
     teacher = lesson.teacher
     subject = lesson.subject
     date = lesson.date
