@@ -10,6 +10,13 @@
 
 ## Как запустить?
 
+Сначала запустите shell:
+```python
+python manage.py shell
+```
+
+затем в shell дайте команду на импорт функций:
+
 ```python
 from scripts.scripts import Schoolkid, Subject, Lesson, Mark, Commendation, Сhastisement
 ```
