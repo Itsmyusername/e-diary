@@ -1,7 +1,14 @@
 import random
+
 from django.core.exceptions import ObjectDoesNotExist
-from datacenter.models import (Schoolkid, Subject, Lesson, Mark, Commendation,
-Сhastisement)
+
+from datacenter.models import (
+    Schoolkid,
+    Subject,
+    Lesson,
+    Mark,
+    Commendation,
+    Сhastisement)
 
 
 COMMENDATIONS = [
