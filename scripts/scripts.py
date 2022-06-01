@@ -8,7 +8,8 @@ from datacenter.models import (
     Lesson,
     Mark,
     Commendation,
-    Сhastisement)
+    Сhastisement
+)
 
 
 COMMENDATIONS = [
