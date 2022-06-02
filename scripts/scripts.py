@@ -46,7 +46,7 @@ def create_commendation(schoolkid_name, subject_name):
     try_except(schoolkid_name)
     try:
         subject = Subject.objects.get(title__contains=subject_name,
-                                  year_of_study=child.year_of_study)
+                                      year_of_study=child.year_of_study)
     except ObjectDoesNotExist:
         print('Does Not Exist!')
     lesson = Lesson.objects.filter(group_letter=child.group_letter,
