@@ -30,7 +30,7 @@ def try_except(schoolkid_name):
 
 
 def fix_marks(schoolkid_name):
-    try_except(schoolkid_name)
+    try_except(child)
     marks = Mark.objects.filter(schoolkid=child, points__in=[2, 3])
     for mark in marks:
         mark.points = random.choice([4, 5])
