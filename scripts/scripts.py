@@ -20,7 +20,7 @@ COMMENDATIONS = [
 ]
 
 
-def try_except(schoolkid_name):
+def get_child(schoolkid_name):
     try:
         child = Schoolkid.objects.filter(full_name__contains=schoolkid_name).first()
         return child
@@ -30,7 +30,7 @@ def try_except(schoolkid_name):
 
 
 def fix_marks(schoolkid_name):
-    try_except(child)
+    get_child(schoolkid_name)
     marks = Mark.objects.filter(schoolkid=child, points__in=[2, 3])
     for mark in marks:
         mark.points = random.choice([4, 5])
@@ -38,7 +38,7 @@ def fix_marks(schoolkid_name):
 
 
 def remove_chastisements(schoolkid_name):
-    try_except(schoolkid_name)
+    get_child(schoolkid_name)
     chastisements = Сhastisement.objects.filter(schoolkid=child)
     chastisements.delete()
 
