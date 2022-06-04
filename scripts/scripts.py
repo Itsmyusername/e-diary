@@ -23,9 +23,10 @@ COMMENDATIONS = [
 def try_except(schoolkid_name):
     try:
         child = Schoolkid.objects.get(full_name__contains=schoolkid_name)
+        return child
     except ObjectDoesNotExist:
         print('Does Not Exist!')
-    return child
+
 
 
 def fix_marks(schoolkid_name):
