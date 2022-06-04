@@ -22,7 +22,7 @@ COMMENDATIONS = [
 
 def try_except(schoolkid_name):
     try:
-        child = Schoolkid.objects.get(full_name__contains=schoolkid_name)
+        child = Schoolkid.objects.filter(full_name__contains=schoolkid_name).first()
         return child
     except ObjectDoesNotExist:
         print('Does Not Exist!')
