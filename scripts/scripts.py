@@ -22,11 +22,12 @@ COMMENDATIONS = [
 
 def get_child(schoolkid_name):
     try:
-        child = Schoolkid.objects.filter(full_name__contains=schoolkid_name).first()
+        child = Schoolkid.objects.filter(
+                                        full_name__contains=schoolkid_name
+                                        ).first()
         return child
     except ObjectDoesNotExist:
         print('Does Not Exist!')
-
 
 
 def fix_marks(schoolkid_name):
