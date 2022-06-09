@@ -31,8 +31,8 @@ def get_child(schoolkid_name):
 
 
 def fix_marks(schoolkid_name):
-    func = get_child(schoolkid_name)
-    marks = Mark.objects.filter(schoolkid=func, points__in=[2, 3])
+    child = get_child(schoolkid_name)
+    marks = Mark.objects.filter(schoolkid=child, points__in=[2, 3])
     for mark in marks:
         mark.points = random.choice([4, 5])
         mark.save()
