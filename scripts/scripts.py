@@ -23,8 +23,8 @@ COMMENDATIONS = [
 def get_child(schoolkid_name):
     try:
         child = Schoolkid.objects.filter(
-                                        full_name__contains=schoolkid_name
-                                        ).first()
+            full_name__contains=schoolkid_name
+            ).first()
         return child
     except ObjectDoesNotExist:
         print('Does Not Exist!')
@@ -32,10 +32,11 @@ def get_child(schoolkid_name):
 
 def fix_marks(schoolkid_name):
     child = get_child(schoolkid_name)
-    marks = Mark.objects.filter(schoolkid=child, points__in=[2, 3])
-    for mark in marks:
-        mark.points = random.choice([4, 5])
-        mark.save()
+    if child:
+        marks = Mark.objects.filter(schoolkid=child, points__in=[2, 3])
+        for mark in marks:
+            mark.points = random.choice([4, 5])
+            mark.save()
 
 
 def remove_chastisements(schoolkid_name):
@@ -45,7 +46,7 @@ def remove_chastisements(schoolkid_name):
 
 
 def create_commendation(schoolkid_name, subject_name):
-    try_except(schoolkid_name)
+    get_child(schoolkid_name)
     try:
         subject = Subject.objects.get(title__contains=subject_name,
                                       year_of_study=child.year_of_study)
