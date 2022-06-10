@@ -40,23 +40,25 @@ def fix_marks(schoolkid_name):
 
 
 def remove_chastisements(schoolkid_name):
-    get_child(schoolkid_name)
-    chastisements = Сhastisement.objects.filter(schoolkid=child)
-    chastisements.delete()
+    child = get_child(schoolkid_name)
+    if child:
+        chastisements = Сhastisement.objects.filter(schoolkid=child)
+        chastisements.delete()
 
 
 def create_commendation(schoolkid_name, subject_name):
-    get_child(schoolkid_name)
-    try:
-        subject = Subject.objects.get(title__contains=subject_name,
+    child = get_child(schoolkid_name)
+    if child:
+        try:
+            subject = Subject.objects.get(title__contains=subject_name,
                                       year_of_study=child.year_of_study)
-    except ObjectDoesNotExist:
-        print('Does Not Exist!')
-    lesson = Lesson.objects.filter(group_letter=child.group_letter,
+        except ObjectDoesNotExist:
+            print('Does Not Exist!')
+        lesson = Lesson.objects.filter(group_letter=child.group_letter,
                                    subject=subject).order_by('?').first()
-    teacher = lesson.teacher
-    subject = lesson.subject
-    date = lesson.date
+        teacher = lesson.teacher
+        subject = lesson.subject
+        date = lesson.date
 
 Commendation.objects.create(
         text=random.choice(COMMENDATIONS),
